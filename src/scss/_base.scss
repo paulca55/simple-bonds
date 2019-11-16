@@ -1,0 +1,24 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+}
