@@ -1,15 +1,149 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="description" content="" />
-    <title></title>
+    <title>Simple Bonds</title>
 
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:600,600i&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" sizes="192x192" href="images/favicon.png" />
     <link rel="apple-touch-icon" href="images/apple-icon.png" />
   </head>
-  <body></body>
+  <body>
+    <div class="wrapper">
+      <header class="site-header">
+        <div class="logo">
+          <img src="images/simple-bonds-logo.png" alt="Simple Bonds logo" />
+        </div>
+
+        <!-- Navigation -->
+        <nav class="menu">
+          <ul class="menu__items">
+            <li class="menu__item menu__item--current">
+              <a href="#" class="menu__link">Bonds</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">Investors</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- END .menu -->
+      </header>
+      <!-- END .site-header -->
+
+      <div class="content">
+        <form class="investment-form">
+          <p>
+            <label for="investor-name">I am investing as:</label>
+            <select id="investor-name">
+              <option value="1">Anne Purvis</option>
+              <option value="2">John Doe</option>
+              <option value="3">Sarah Smith</option>
+              <option value="4">Jack Jones</option>
+            </select>
+          </p>
+          <p>
+            <label for="invest-amount">How much would you like to invest?</label>
+            <input type="number" id="invest-amount" />
+          </p>
+        </form>
+
+        <div class="bonds-container">
+          <div class="bond">
+            <header class="bond-header">
+              <h2 class="bond__heading">Barton, Reilly and Carter</h2>
+              <span class="bond__duration">Duration: 24 Months</span>
+            </header>
+            <div class="bond-type bond-type--maturity">
+              <p class="bond-type__percent">7%<span class="bond-type__pa">P.A</span></p>
+              <p class="bond-type__interest">Interest Paid<br /><strong>On Maturity</strong></p>
+              <p class="bond-type__return">Expected gross return:</p>
+              <p class="bond-type__return-amount">£10000</p>
+              <button class="bond-type__invest-btn">Invest</button>
+            </div>
+            <div class="bond-type bond-type--quarterly">
+              <p class="bond-type__percent">7%<span class="bond-type__pa">P.A</span></p>
+              <p class="bond-type__interest">Interest Paid<br /><strong>On Maturity</strong></p>
+              <p class="bond-type__return">Expected gross return:</p>
+              <p class="bond-type__return-amount">£10000</p>
+              <button class="bond-type__invest-btn">Invest</button>
+            </div>
+          </div>
+          <!-- END .bond -->
+          <div class="bond">
+            <header class="bond-header">
+              <h2 class="bond__heading">Barton, Reilly and Carter</h2>
+              <span class="bond__duration">Duration: 24 Months</span>
+            </header>
+            <div class="bond-type bond-type--maturity">
+              <p class="bond-type__percent">7%<span class="bond-type__pa">P.A</span></p>
+              <p class="bond-type__interest">Interest Paid<br /><strong>On Maturity</strong></p>
+              <p class="bond-type__return">Expected gross return:</p>
+              <p class="bond-type__return-amount">£10000</p>
+              <button class="bond-type__invest-btn">Invest</button>
+            </div>
+            <div class="bond-type bond-type--quarterly">
+              <p class="bond-type__percent">7%<span class="bond-type__pa">P.A</span></p>
+              <p class="bond-type__interest">Interest Paid<br /><strong>On Maturity</strong></p>
+              <p class="bond-type__return">Expected gross return:</p>
+              <p class="bond-type__return-amount">£10000</p>
+              <button class="bond-type__invest-btn">Invest</button>
+            </div>
+          </div>
+          <!-- END .bond -->
+          <div class="bond">
+            <header class="bond-header">
+              <h2 class="bond__heading">Barton, Reilly and Carter</h2>
+              <span class="bond__duration">Duration: 24 Months</span>
+            </header>
+            <div class="bond-type bond-type--maturity">
+              <p class="bond-type__percent">7%<span class="bond-type__pa">P.A</span></p>
+              <p class="bond-type__interest">Interest Paid<br /><strong>On Maturity</strong></p>
+              <p class="bond-type__return">Expected gross return:</p>
+              <p class="bond-type__return-amount">£10000</p>
+              <button class="bond-type__invest-btn">Invest</button>
+            </div>
+            <div class="bond-type bond-type--quarterly">
+              <p class="bond-type__percent">7%<span class="bond-type__pa">P.A</span></p>
+              <p class="bond-type__interest">Interest Paid<br /><strong>On Maturity</strong></p>
+              <p class="bond-type__return">Expected gross return:</p>
+              <p class="bond-type__return-amount">£10000</p>
+              <button class="bond-type__invest-btn">Invest</button>
+            </div>
+          </div>
+          <!-- END .bond -->
+          <div class="bond">
+            <header class="bond-header">
+              <h2 class="bond__heading">Barton, Reilly and Carter</h2>
+              <span class="bond__duration">Duration: 24 Months</span>
+            </header>
+            <div class="bond-type bond-type--maturity">
+              <p class="bond-type__percent">7%<span class="bond-type__pa">P.A</span></p>
+              <p class="bond-type__interest">Interest Paid<br /><strong>On Maturity</strong></p>
+              <p class="bond-type__return">Expected gross return:</p>
+              <p class="bond-type__return-amount">£10000</p>
+              <button class="bond-type__invest-btn">Invest</button>
+            </div>
+            <div class="bond-type bond-type--quarterly">
+              <p class="bond-type__percent">7%<span class="bond-type__pa">P.A</span></p>
+              <p class="bond-type__interest">Interest Paid<br /><strong>On Maturity</strong></p>
+              <p class="bond-type__return">Expected gross return:</p>
+              <p class="bond-type__return-amount">£10000</p>
+              <button class="bond-type__invest-btn">Invest</button>
+            </div>
+          </div>
+          <!-- END .bond -->
+        </div>
+        <!-- END .bonds-container -->
+      </div>
+      <!-- END .content -->
+    </div>
+    <!-- END .wrapper -->
+  </body>
 </html>

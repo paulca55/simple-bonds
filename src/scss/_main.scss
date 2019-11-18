@@ -1,0 +1,49 @@
+body {
+  background-image: linear-gradient(to bottom, $color__grey4, #fff);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    'Helvetica Neue', sans-serif;
+  padding: 2rem;
+}
+
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.logo {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.menu__items {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.menu__item {
+  padding: 0.5em 1em;
+  list-style: none;
+
+  &--current {
+    background-color: #fff;
+  }
+}
+
+.menu__link {
+  text-decoration: none;
+}
+
+.content {
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.bonds-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.bond-type__pa {
+  font-size: 60%;
+}
