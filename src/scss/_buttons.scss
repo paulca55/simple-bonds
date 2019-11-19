@@ -1,28 +1,32 @@
 .btn {
   @include headings-font();
   @include transition();
-  border: 2px solid $color__grey4;
-  border-radius: 0.5em;
+  background: $color__primary3;
+  color: rgba(255, 255, 255, 0.9);
+  border: 2px solid transparent;
+  border-radius: 1em;
   display: inline-block;
   padding: 0.1em 0.8em;
   position: relative;
   text-transform: uppercase;
   white-space: nowrap;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   outline: none;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
+  text-transform: capitalize;
 
-  &:visited {
-    color: red;
+  &:focus {
+    border: 2px solid #fff !important;
   }
 
-  &:focus,
-  &:hover,
-  &:active {
-    border: 2px solid $color__primary5;
-    transform: translateY(-2px);
+  &:hover {
+    background: $color__primary4;
+    transform: translateY(-1px);
+    box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
   }
 
   &:active {
     top: 1px;
+    background: $color__primary2;
   }
 }

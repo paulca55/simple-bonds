@@ -1,5 +1,5 @@
 var investAmountWrapper = document.querySelector('.invest-amount-wrapper');
-var investAmountInput  = document.querySelector('.invest-amount');
+var investAmountInput = document.querySelector('.invest-amount');
 
 function focusClassToggle() {
   investAmountWrapper.classList.toggle('invest-amount-wrapper--focus');
@@ -7,3 +7,8 @@ function focusClassToggle() {
 
 investAmountInput.addEventListener('focus', focusClassToggle);
 investAmountInput.addEventListener('blur', focusClassToggle);
+
+/* Use commas in currency */
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
