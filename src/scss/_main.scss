@@ -1,6 +1,6 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
-    'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    "Helvetica Neue", sans-serif;
   // background-image: linear-gradient(to bottom, $color__primary7, #fff);
   padding: 2rem;
 }
@@ -58,7 +58,6 @@ body {
 .bond__duration {
   font-size: 1.4rem;
   color: $color__primary5;
-
 }
 
 .bond-type-container {
@@ -68,6 +67,9 @@ body {
 
 .bond-type {
   flex: 1;
+}
+
+.bond-type__percent {
 }
 
 .bond-type__pa {
