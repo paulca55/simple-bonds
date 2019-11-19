@@ -17,7 +17,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   min-height: 100vh;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: #292f33;
 }
 
@@ -31,9 +31,13 @@ h6 {
 }
 
 a {
-  color: $color__primary3;
   font-weight: bold;
 
+  &:link {
+    color: $color__primary3;
+  }
+
+  &:focus,
   &:hover {
     color: $color__primary4;
   }
