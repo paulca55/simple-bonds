@@ -1,0 +1,29 @@
+.btn {
+  @include headings-font();
+  background-color: transparent;
+  border-radius: 0 !important;
+  color: red;
+  display: inline-block;
+  padding: 0.1em 0.8em;
+  position: relative;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-size: 2rem;
+  border: 2px solid green;
+
+  &:visited {
+    color: red;
+  }
+
+  &:focus,
+  &:hover,
+  &:active {
+    background-color: green;
+    color: #fff;
+  }
+
+  &:active {
+    position: relative;
+    top: 2px;
+  }
+}

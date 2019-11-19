@@ -17,7 +17,8 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   min-height: 100vh;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  color: #292f33;
 }
 
 h1,
@@ -26,8 +27,20 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+  @include headings-font();
+}
+
+a {
+  color: $color__primary3;
+  font-weight: bold;
+
+  &:hover {
+    color: $color__primary4;
+  }
+
+  &:active {
+    color: $color__primary2;
+  }
 }
 
 img {

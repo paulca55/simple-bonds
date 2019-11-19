@@ -1,0 +1,40 @@
+.menu {
+  background: $color__primary3;
+}
+
+.menu__items {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.menu__item {
+  list-style: none;
+
+  &--current {
+    background-color: #fff;
+  }
+}
+
+.menu__link {
+  @include headings-font();
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  color: rgba(255, 255, 255, 0.8);
+
+  svg {
+    width: 100%;
+    max-width: 1.2em;
+    margin-right: 0.5em;
+    fill: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.menu__item--current .menu__link {
+  color: $color__primary2;
+
+  svg {
+    fill: $color__primary5;
+  }
+}

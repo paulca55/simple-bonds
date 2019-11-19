@@ -1,0 +1,29 @@
+.logo-graph-arrow {
+  stroke: green;
+  stroke-width: 2px;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: dash-animation 2.5s 2s ease-out both;
+  fill: green;
+}
+
+@keyframes dash-animation {
+  0% {
+    fill: transparent;
+    stroke: $color__grey5;
+  }
+  80% {
+    fill: transparent;
+    stroke-dashoffset: 0;
+    stroke: $color__grey5;
+    stroke-width: 2px;
+
+  }
+  100% {
+    fill: green;
+    stroke-dashoffset: 0;
+    stroke: green;
+  stroke-width: 0;
+
+  }
+}

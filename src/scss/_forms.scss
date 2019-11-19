@@ -1,0 +1,55 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+  @include transition($prop: all, $ease: ease);
+  font-size: 1.8rem;
+  color: red;
+  border: 2px solid red;
+  padding: 0.3em 0.6em;
+  background-color: green;
+  -webkit-appearance: none;
+  border-radius: 0;
+  width: 100%;
+
+  &:focus {
+    color: red;
+    border-color: red;
+    background-color: #fff;
+  }
+}
+
+select {
+  border: 1px solid red;
+}
+
+textarea {
+  width: 100%;
+  background-color: green;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+
+  @extend .btn;
+  border: none;
+  border-radius: 0;
+}
+
+.invest-amount {
+
+}
