@@ -57,6 +57,10 @@ body {
   min-height: 500px;
   max-height: 30vh;
   overflow-y: auto;
+  margin-left: -3rem;
+  margin-right: -3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .bond {
@@ -74,7 +78,7 @@ body {
 }
 
 .bond__heading {
-  margin: 0 0 0.7rem;
+  margin-bottom: 0.7rem;
   font-size: 1.8rem;
   color: $color__primary3;
 }
@@ -97,8 +101,7 @@ body {
   padding: 0.3em;
   color: $color__accent2-b;
   background-color: $color__accent2-g;
-  margin: 0 2rem 0;
-  margin-bottom: 3rem;
+  margin: 0 2rem 3rem;
   border-radius: 2em;
 }
 

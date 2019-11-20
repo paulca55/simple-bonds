@@ -16,7 +16,8 @@
   text-transform: capitalize;
 
   &:focus {
-    border: 2px solid #fff !important;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 0.4rem rgba($color__primary5, 0.4);
   }
 
   &:hover {
