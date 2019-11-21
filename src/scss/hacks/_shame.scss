@@ -12,7 +12,7 @@ body {
 .wrapper {
   max-width: 960px;
   height: 100%;
-  max-height: 100vh;
+  // max-height: 100vh;
   margin: 0 auto;
 }
 
@@ -24,57 +24,83 @@ body {
 
 .logo-graph-arrow {
   stroke: $color__accent2-d;
-  stroke-width: 2px;
   stroke-dasharray: 300;
   stroke-dashoffset: 300;
-  animation: dash-animation 2.5s 1.5s ease-out both;
   fill: $color__accent2-d;
+
+  .home & {
+    animation: dash-animation-arrow 1.5s 3s linear both;
+  }
+}
+
+.logo-graph-bar1,
+.logo-graph-bar2,
+.logo-graph-bar3 {
+  stroke: $color__primary3;
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+  fill: $color__primary3;
+
+  .home & {
+    animation: dash-animation-bars-text 1.5s 1.5s linear both;
+  }
+}
+
+.logo-text path {
+  stroke: $color__primary3;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  fill: $color__primary3;
+
+  .home & {
+    animation: dash-animation-bars-text 1.5s 1.5s linear both;
+  }
 }
 
 .content {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 3rem;
   box-shadow: 0 0.2rem 1.2rem rgba(0, 0, 0, 0.1);
-  border-radius: 0.5rem;
+  border-radius: 2.2rem;
   position: relative;
 
-  &::after {
-    display: block;
-    content: "";
-    height: 150px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-image: linear-gradient(to bottom, transparent, #fff 80%);
-  }
+  // &::after {
+  //   display: block;
+  //   content: "";
+  //   height: 150px;
+  //   width: 100%;
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   background-image: linear-gradient(to bottom, transparent, #fff 80%);
+  // }
 }
 
 .bonds-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2rem;
-  min-height: 500px;
-  max-height: 30vh;
-  overflow-y: auto;
-  margin-left: -3rem;
-  margin-right: -3rem;
-  padding-left: 3rem;
-  padding-right: 3rem;
+  // min-height: 500px;
+  // max-height: 30vh;
+  // overflow-y: auto;
+  // margin-left: -3rem;
+  // margin-right: -3rem;
+  // padding: 3rem;
 }
 
 .bond {
   padding: 0 2rem 2rem;
   box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
 .bond-header {
-  background-image: linear-gradient(45deg, $color__grey1, $color__grey2);
+  background-image: linear-gradient(45deg, $color__grey2, $color__grey1);
   margin-left: -2rem;
   margin-right: -2rem;
   padding: 1rem 2rem;
+  border-radius: 1rem 1rem 0 0;
 }
 
 .bond__heading {

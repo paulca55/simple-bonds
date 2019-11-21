@@ -1,0 +1,41 @@
+@keyframes dash-animation-arrow {
+  0% {
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: $color__grey5;
+  }
+
+  70% {
+    fill: transparent;
+    stroke-dashoffset: 0;
+    stroke: $color__grey5;
+    stroke-width: 2px;
+  }
+
+  100% {
+    fill: $color__accent2-d;
+    stroke-dashoffset: 0;
+    stroke-width: 0;
+  }
+}
+
+@keyframes dash-animation-bars-text {
+  0% {
+    fill: transparent;
+    stroke-width: 2px;
+    stroke: $color__grey5;
+  }
+
+  70% {
+    fill: transparent;
+    stroke-dashoffset: 0;
+    stroke: $color__grey5;
+    stroke-width: 2px;
+  }
+
+  100% {
+    fill: $color__primary3;
+    stroke-dashoffset: 0;
+    stroke-width: 0;
+  }
+}

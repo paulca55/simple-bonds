@@ -56,9 +56,7 @@ ol[class] {
 
 /* Default hyperlinks */
 a {
-  &:link {
-    color: $color__primary3;
-  }
+  color: $color__primary3;
 
   &:focus,
   &:hover {

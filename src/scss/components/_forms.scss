@@ -14,23 +14,9 @@ textarea {
   padding: 0.8em;
   background-color: #fff;
   -webkit-appearance: none;
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
   width: 100%;
   outline: none;
-}
-
-input[type="text"]:hover,
-input[type="email"]:hover,
-input[type="number"]:hover,
-input[type="url"]:hover,
-input[type="password"]:hover,
-input[type="tel"]:hover,
-input[type="date"]:hover,
-input[type="time"]:hover,
-input[type="search"]:hover,
-textarea:hover,
-select:hover {
-  border: 2px solid $color__primary5;
 }
 
 input[type="text"]:focus,
@@ -75,7 +61,7 @@ select {
   max-width: 100%;
   margin: 0 0 3rem 1rem;
   border: 2px solid $color__grey4;
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -89,10 +75,6 @@ select {
 
 select::-ms-expand {
   display: none;
-}
-
-select:hover {
-  border-color: $color__primary5;
 }
 
 select option {
@@ -110,12 +92,8 @@ select option {
   align-items: center;
   background-color: #fff;
   max-width: 35ch;
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
   border: 2px solid $color__grey4;
-}
-
-.invest-amount-wrapper:hover {
-  border-color: $color__primary5;
 }
 
 .invest-amount-wrapper--focus {

@@ -15,11 +15,6 @@
   box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2);
   text-transform: capitalize;
 
-  &:focus {
-    border: 2px solid #fff;
-    box-shadow: 0 0 0 0.4rem rgba($color__primary5, 0.4);
-  }
-
   &:hover {
     background: $color__primary4;
     transform: translateY(-1px);
@@ -29,5 +24,10 @@
   &:active {
     top: 1px;
     background: $color__primary2;
+  }
+
+  &:focus {
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 0.4rem rgba($color__primary5, 0.4), 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
   }
 }
