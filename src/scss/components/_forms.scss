@@ -10,8 +10,8 @@ input[type="search"],
 textarea {
   @include transition();
   font-weight: bold;
-  border: 2px solid $color__grey4;
-  padding: 0.8em;
+  border: 0.2rem solid $color__grey4;
+  padding: 0.6em 0.8em;
   background-color: #fff;
   -webkit-appearance: none;
   border-radius: 0.5rem;
@@ -30,8 +30,7 @@ input[type="time"]:focus,
 input[type="search"]:focus,
 textarea:focus,
 select:focus {
-  border: 2px solid $color__primary5;
-  box-shadow: 0 0 0 0.4rem rgba($color__primary5, 0.4);
+  @include focus-styles();
 }
 
 button,
@@ -60,7 +59,7 @@ select {
   padding: 0.6em 2em 0.6em 0.8em;
   max-width: 100%;
   margin: 0 0 3rem 1rem;
-  border: 2px solid $color__grey4;
+  border: 0.2rem solid $color__grey4;
   border-radius: 0.5rem;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -82,7 +81,6 @@ select option {
 }
 
 .investment-form {
-  margin-bottom: 5rem;
   background: url("../images/investing2.svg") no-repeat right center / contain;
 }
 
@@ -93,7 +91,8 @@ select option {
   background-color: #fff;
   max-width: 35ch;
   border-radius: 0.5rem;
-  border: 2px solid $color__grey4;
+  border: 0.2rem solid $color__grey4;
+  margin-bottom: 2.5rem;
 }
 
 .invest-amount-wrapper--focus {

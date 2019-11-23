@@ -21,17 +21,8 @@
   color: $color__grey7;
   text-decoration: none;
   border-radius: 3rem;
-  border: 2px solid $color__grey4;
-
-  &:focus,
-  &:hover {
-    color: $color__grey7;
-    border: 2px solid $color__grey5;
-
-    svg {
-      fill: $color__grey6;
-    }
-  }
+  border: 0.2rem solid $color__grey4;
+  outline: none;
 
   svg {
     @include transition(fill);
@@ -42,18 +33,45 @@
   }
 }
 
-.menu__item--current .menu__link {
+.menu__link:hover:not(.menu__link--current) {
+  color: $color__grey7;
+  border: 0.2rem solid $color__grey5;
+
+  svg {
+    fill: $color__grey6;
+  }
+}
+
+.menu__link:focus:not(.menu__link--current) {
+  color: $color__grey7;
+  @include focus-styles();
+
+  svg {
+    fill: $color__grey6;
+  }
+}
+
+.menu__link--current {
   color: $color__primary2;
   background-color: #fff;
   cursor: default;
   filter: drop-shadow(0 0.2rem 1.2rem rgba(0, 0, 0, 0.1));
-  border: 2px solid #fff;
+  border: 0.2rem solid #fff;
 
   svg {
     fill: $color__primary5;
   }
 }
 
-.menu__item--bonds .menu__link svg {
+.menu__link--current:hover {
+  color: $color__primary2;
+}
+
+.menu__link--current:focus {
+  @include focus-styles();
+  color: $color__primary2;
+}
+
+.menu__link--bonds svg {
   max-width: 1.3em;
 }

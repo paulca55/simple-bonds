@@ -3,7 +3,7 @@
   @include transition();
   background: $color__primary3;
   color: rgba(255, 255, 255, 0.9);
-  border: 2px solid transparent;
+  border: 0.2rem solid transparent;
   border-radius: 1em;
   display: inline-block;
   padding: 0.1em 0.8em;
@@ -27,7 +27,7 @@
   }
 
   &:focus {
-    border: 2px solid #fff;
-    box-shadow: 0 0 0 0.4rem rgba($color__primary5, 0.4), 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+    border: 0.2rem solid #fff;
+    box-shadow: 0 0 0 0.4rem rgba($color__primary5, 0.4);
   }
 }

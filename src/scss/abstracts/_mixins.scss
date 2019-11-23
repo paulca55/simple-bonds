@@ -8,3 +8,9 @@
 @mixin transition($prop: all, $dur: 0.3s, $ease: ease-in-out) {
   transition: #{$prop} #{$dur} #{$ease};
 }
+
+// Focus Styles
+@mixin focus-styles() {
+  border: 0.2rem solid $color__primary5;
+  box-shadow: 0 0 0 0.4rem rgba($color__primary5, 0.4);
+}
