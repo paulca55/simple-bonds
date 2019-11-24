@@ -6,7 +6,7 @@
   border: 0.2rem solid transparent;
   border-radius: 1em;
   display: inline-block;
-  padding: 0.1em 0.8em;
+  padding: 0.5em 1em;
   position: relative;
   text-transform: uppercase;
   white-space: nowrap;
@@ -29,5 +29,13 @@
   &:focus {
     border: 0.2rem solid #fff;
     box-shadow: 0 0 0 0.4rem rgba($color__primary5, 0.4);
+  }
+}
+
+.bond-type__invest-btn {
+  background-color: $color__accent2-c;
+
+  &:hover {
+    background-color: $color__accent2-d;
   }
 }

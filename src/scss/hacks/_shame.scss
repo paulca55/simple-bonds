@@ -78,6 +78,7 @@ body {
 }
 
 .bonds-container {
+  @include transition($prop: "margin-top");
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 3rem;
@@ -90,10 +91,16 @@ body {
 }
 
 .bond {
+  @include transition();
   // padding: 0 2rem 2rem;
   box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
   background-color: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+
+  &.is-loaded {
+    opacity: 1;
+  }
 }
 
 .bond-header {
@@ -113,12 +120,13 @@ body {
 
 .bond__duration {
   font-size: 1.5rem;
-  color: $color__primary4;
+  color: $color__grey6;
   margin-bottom: 0;
 }
 
 .bond__duration span {
   font-size: 1.9rem;
+  color: $color__primary4;
 }
 
 .bond-type-container {
@@ -131,8 +139,7 @@ body {
 }
 
 .bond-type {
-  flex: 1;
-  padding-bottom: 2rem;
+  // flex: 1;
   // margin-bottom: 2rem;
 }
 
@@ -163,7 +170,6 @@ body {
   padding: 1rem 2rem;
   color: $color__accent2-b;
   background-image: linear-gradient(to left, $color__accent2-g, rgba($color__accent2-g, 0.9));
-  margin-bottom: 2rem;
 }
 
 .bond-type__return-amount {
@@ -179,4 +185,9 @@ body {
   font-size: 1.4rem;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.bond-type__invest-btn-wrapper {
+  padding: 2rem;
+  text-align: right;
 }

@@ -1,13 +1,25 @@
 var investAmountWrapper = document.querySelector('.invest-amount-wrapper');
 var investAmountInput = document.querySelector('.invest-amount');
-var bondsContainer = document.querySelector('.bonds-container');
 var investAmountCalc = document.querySelector('.invest-amount-calc');
+var bondsContainer = document.querySelector('.bonds-container');
+var bondItem = document.querySelector('.bond');
 
 investAmountCalc.addEventListener('click', function(e) {
-  e.preventDefault();
-  getBonds();
-  bondsContainer.style = 'margin-top: 5rem;';
+  e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+
+  if (!investAmountInput.value) {
+    alert('Please specify an investment amount.');
+  } else {
+    bondsContainer.style = 'margin-top: 5rem;';
+    loader();
+    getBonds();
+  }
 });
+
+function loader() {
+  investAmountCalc.textContent = 'Finding available bonds...';
+  bondsContainer.innerHTML = `<div class="loader">Loading</div><div class="loader-wrapper"><div class="loader">Loading</div>`;
+}
 
 function focusClassToggle() {
   investAmountWrapper.classList.toggle('invest-amount-wrapper--focus');
@@ -17,7 +29,7 @@ investAmountInput.addEventListener('focus', focusClassToggle);
 investAmountInput.addEventListener('blur', focusClassToggle);
 
 /* Use commas in currency */
-function currencyWithCommas(x) {
+function currencyFormat(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
@@ -32,9 +44,9 @@ function getBonds() {
     if (xhr.status == 200) {
       var response = JSON.parse(xhr.responseText);
       var bonds = response.data;
-      console.log(response.data);
-      // var bondsContainer = document.querySelector('.bonds-container');
       var investAmountPence = Number(investAmountInput.value) * 100;
+      investAmountCalc.textContent = 'Re-calculate?';
+      bondsContainer.innerHTML = '';
 
       for (var i = 0; i < bonds.length; i++) {
         var maturityInterest = Number(bonds[i].maturity_interest * 100).toFixed(2);
@@ -43,13 +55,13 @@ function getBonds() {
           investAmountPence +
           ((investAmountPence * bonds[i].maturity_interest) / 12) * bonds[i].duration_months;
         var maturityReturnPounds = maturityReturnPence / 100;
-        var maturityReturnTotal = Number(maturityReturnPounds).toFixed(2);
+        var maturityReturnTotal = currencyFormat(Number(maturityReturnPounds).toFixed(2));
 
         var quarterlyReturnPence =
           investAmountPence +
           ((investAmountPence * bonds[i].quarterly_interest) / 12) * bonds[i].duration_months;
         var quarterlyReturnPounds = quarterlyReturnPence / 100;
-        var quarterlyReturnTotal = Number(quarterlyReturnPounds).toFixed(2);
+        var quarterlyReturnTotal = currencyFormat(Number(quarterlyReturnPounds).toFixed(2));
 
         bondsContainer.innerHTML += `<div class="bond">
           <header class="bond-header">
@@ -64,9 +76,17 @@ function getBonds() {
               </div>
               <div class="bond-type__return">
                 <p class="bond-type__return-amount">£${maturityReturnTotal}</p>
-                <p class="bond-type__return-text">Expected gross return</p>
+                <p class="bond-type__return-text">Expected gross return<br><i>(based on a £${currencyFormat(
+                  investAmountInput.value
+                )} investment)</i></p>
               </div>
-              <button class="btn bond-type__invest-btn">Invest<span class="u-screen-reader-text"> in ${bonds[i].name} over ${bonds[i].duration_months} months, interest paid on maturity.</span></button>
+              <div class="bond-type__invest-btn-wrapper">
+                <button class="btn bond-type__invest-btn">Invest<span class="u-screen-reader-text"> in ${
+                  bonds[i].name
+                } over ${
+          bonds[i].duration_months
+        } months, interest paid on maturity.</span></button>
+              </div>
             </div>
             <div class="bond-type bond-type--quarterly">
               <div class="bond-type__interest">
@@ -75,19 +95,30 @@ function getBonds() {
               </div>
               <div class="bond-type__return">
                 <p class="bond-type__return-amount">£${quarterlyReturnTotal}</p>
-                <p class="bond-type__return-text">Expected gross return</p>
+                <p class="bond-type__return-text">Expected gross return<br><i>(based on a £${currencyFormat(
+                  investAmountInput.value
+                )} investment)</i></p>
               </div>
-              <button class="btn bond-type__invest-btn">Invest<span class="u-screen-reader-text"> in ${bonds[i].name} over ${bonds[i].duration_months} months, interest paid quarterly.</span></button>
+              <div class="bond-type__invest-btn-wrapper">
+                <button class="btn bond-type__invest-btn">Invest<span class="u-screen-reader-text"> in ${
+                  bonds[i].name
+                } over ${bonds[i].duration_months} months, interest paid quarterly.</span></button>
+              </div>
             </div>
           </div>
         </div>
         <!-- END .bond -->`;
       }
-    }
-  };
 
-  xhr.onerror = function() {
-    console.log('Request error!');
+      // Fade in bonds once they have loaded
+      setTimeout(function() {
+        var bondsList = document.querySelectorAll('.bond');
+        var bondsListArr = Array.prototype.slice.call(bondsList);
+        bondsListArr.forEach(function(val) {
+          val.classList.add('is-loaded');
+        });
+      }, 100);
+    }
   };
 
   xhr.send();
