@@ -1,0 +1,51 @@
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.modal {
+  background: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0.3rem 0.8rem black;
+  z-index: 10;
+  width: 90%;
+  max-width: 700px;
+  padding: 2rem;
+}
+
+.modal__close-btn {
+  @include transition();
+  border: none;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+  width: 3rem;
+  height: 3rem;
+  padding: 0.7rem;
+  box-shadow: 0 0.3rem 0.8rem black;
+  outline: none;
+
+  &:focus {
+    border: 0.2rem solid #fff;
+    box-shadow: 0 0 0 0.4rem rgba($color__primary5, 0.4);
+  }
+
+  svg {
+    width: 100%;
+  }
+}

@@ -33,7 +33,7 @@ select:focus {
   @include focus-styles();
 }
 
-button,
+button:not(.modal__close-btn),
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
