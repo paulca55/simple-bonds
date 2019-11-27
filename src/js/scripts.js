@@ -28,9 +28,14 @@ function focusClassToggle() {
   investAmountWrapper.classList.toggle('invest-amount-wrapper--focus');
 }
 
-/* Use commas in currency */
+// Use commas in currency
 function currencyFormat(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+// Capitalise first letter of a string
+function capitaliseFirst(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 // Get bonds from the API for the list of available bonds
@@ -260,10 +265,7 @@ function getInvestments(investorId, investorName) {
 
   var xhr = new XMLHttpRequest(),
     method = 'GET',
-    url =
-      'http://165.227.229.49:8000/investors/' +
-      investorId +
-      '/investments?api_key=vNtV4nZsuMRL01sXVPzUtRnzf7L08B9O';
+    url = `http://165.227.229.49:8000/investors/${investorId}/investments?api_key=vNtV4nZsuMRL01sXVPzUtRnzf7L08B9O`;
 
   xhr.open(method, url, true);
   xhr.setRequestHeader('Accept', 'application/json');
@@ -278,32 +280,63 @@ function getInvestments(investorId, investorName) {
         <div class="investments">
           <div class="investments__avatar">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <title>Avatar image for ${investments[0].investor.first_name} ${investments[0].investor.last_name}</title>
+              <title>Avatar image for ${investments[0].investor.first_name} ${
+          investments[0].investor.last_name
+        }</title>
               <path d="M12,0A12,12,0,1,1,0,12,12,12,0,0,1,12,0Zm8.13,19.41a2.6,2.6,0,0,0-1.63-.85c-3.85-.91-4.09-1.5-4.35-2.06a2.18,2.18,0,0,1,.21-2c1.72-3.25,2.09-6,1-7.79A3.74,3.74,0,0,0,12,5,3.79,3.79,0,0,0,8.59,6.76c-1.07,1.79-.69,4.55,1.05,7.76a2.16,2.16,0,0,1,.22,2c-.27.59-.61,1.19-4.37,2.07a2.54,2.54,0,0,0-1.62.85,11,11,0,0,0,16.26,0Zm.65-.78a11,11,0,1,0-17.56,0,3.82,3.82,0,0,1,2-1.05c2-.46,3.38-.83,3.68-1.5A1.24,1.24,0,0,0,8.76,15c-1.92-3.54-2.28-6.65-1-8.75A4.79,4.79,0,0,1,12,4a4.79,4.79,0,0,1,4.24,2.22c1.25,2.08.9,5.19-1,8.77a1.27,1.27,0,0,0-.18,1.1c.31.66,1.64,1,3.67,1.49A3.76,3.76,0,0,1,20.78,18.63Z" fill="#63a1d4"/>
             </svg>
           </div>
-          <h3 class="investments__name">${investments[0].investor.first_name} ${investments[0].investor.last_name}</h3>
-          <div class="investments__total">${investmentsTotal} investments</div>
+          <h3 class="investments__name">${investments[0].investor.first_name} ${
+          investments[0].investor.last_name
+        }</h3>
+          <div class="investments__total">${
+            investmentsTotal > 1
+              ? investmentsTotal + ' investments'
+              : investmentsTotal + ' investment'
+          }</div>
         </div>`;
 
         modalBodyInner.innerHTML = '';
 
-        // Loop through and display all investors
+        // Loop through and display all investments
         for (var i = 0; i < investments.length; i++) {
           // Investments template
-          modalBodyInner.innerHTML += `
-          <div class="investment">
-            <h4>${investments[i].bond.name}</h4>
-            <p>Duration: ${investments[i].bond.duration_months} months</p>
-            <p>Interest Type: ${investments[i].type}</p>
-            <p>Amount Invested: £${currencyFormat(
-              Number(investments[i].amount / 100).toFixed(2)
-            )}</p>
-            <p>Amount Invested: £${currencyFormat(
-              Number(investments[i].expected_return / 100).toFixed(2)
-            )}</p>
-            <p>Status: ${investments[i].status}</p>
-          </div>`;
+          if (investments[i].status === 'committed' || investments[i].status === 'cancelled') {
+            modalBodyInner.innerHTML += `
+            <div class="investment">
+              <h4 class="investment__bond-name">${investments[i].bond.name}</h4>
+              <p><b>Duration:</b> ${investments[i].bond.duration_months} months</p>
+              <p><b>Interest Paid:</b> ${capitaliseFirst(investments[i].type)}</p>
+              <p><b>Amount Invested:</b> £${currencyFormat(
+                Number(investments[i].amount / 100).toFixed(2)
+              )}</p>
+              <p><b>Expected Return:</b> £${currencyFormat(
+                Number(investments[i].expected_return / 100).toFixed(2)
+              )}</p>
+              <p><b>Status:</b> ${capitaliseFirst(investments[i].status)} </p>
+            </div>`;
+          } else {
+            modalBodyInner.innerHTML += `
+            <div class="investment">
+              <h4 class="investment__bond-name">${investments[i].bond.name}</h4>
+              <p><b>Duration:</b> ${investments[i].bond.duration_months} months</p>
+              <p><b>Interest Paid:</b> ${capitaliseFirst(investments[i].type)}</p>
+              <p><b>Amount Invested:</b> £${currencyFormat(
+                Number(investments[i].amount / 100).toFixed(2)
+              )}</p>
+              <p><b>Expected Return:</b> £${currencyFormat(
+                Number(investments[i].expected_return / 100).toFixed(2)
+              )}</p>
+              <p><b>Status:</b> ${capitaliseFirst(investments[i].status)} </p>
+              <button class="investment__cancel-btn" data-bond-name="${
+                investments[i].bond.name
+              }" data-investor-name="${investments[i].investor.first_name} ${
+              investments[i].investor.last_name
+            }" data-investor-id="${investments[i].investor_id}" data-investment-id="${
+              investments[i].id
+            }">Cancel investment</button>
+            </div>`;
+          }
         }
       } else {
         modalHeader.innerHTML = `
@@ -315,7 +348,6 @@ function getInvestments(investorId, investorName) {
             </svg>
           </div>
           <h3 class="investments__name">${investorName}</h3>
-          <div class="investments__total">${investmentsTotal} investments</div>
         </div>`;
 
         modalBodyInner.innerHTML = `
@@ -323,6 +355,26 @@ function getInvestments(investorId, investorName) {
             <p>No investments have been made yet</p>
           </div>`;
       }
+
+      // Add event listener to all cancel investment buttons
+      var cancelInvestmentsBtns = document.querySelectorAll('.investment__cancel-btn');
+      var cancelInvestmentsBtnsArr = Array.prototype.slice.call(cancelInvestmentsBtns);
+
+      cancelInvestmentsBtnsArr.forEach(function(cancelBtn) {
+        cancelBtn.addEventListener('click', function(e) {
+          e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+          var bondName = this.getAttribute('data-bond-name');
+          var investorId = this.getAttribute('data-investor-id');
+          var investorName = this.getAttribute('data-investor-name');
+          var investmentId = this.getAttribute('data-investment-id');
+
+          if (confirm(`Are you sure you want to cancel your investment with ${bondName}?`)) {
+            cancelInvestment(investorId, investmentId);
+          } else {
+            return false;
+          }
+        });
+      });
     }
   };
 
@@ -442,4 +494,27 @@ if (investorNameSelect) {
 // If investor container exists, run function to populate the investors container
 if (investorsContainer) {
   getInvestors();
+}
+
+function cancelInvestment(investorId, investmentId) {
+  var xhr = new XMLHttpRequest(),
+    method = 'DELETE',
+    url = `http://165.227.229.49:8000/investors/${investorId}/investments/${investmentId}?api_key=vNtV4nZsuMRL01sXVPzUtRnzf7L08B9O`;
+
+  xhr.open(method, url, true);
+  xhr.setRequestHeader('Accept', 'application/json');
+
+  xhr.onload = function() {
+    if (xhr.status == 200) {
+      var response = JSON.parse(xhr.responseText);
+      console.log(response);
+      closeModal();
+      alert('Your investment has been successfully cancelled.');
+    } else {
+      var response = JSON.parse(xhr.responseText);
+      console.log(response);
+    }
+  };
+
+  xhr.send();
 }
