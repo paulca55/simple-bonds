@@ -4,8 +4,8 @@ body {
   background-image: linear-gradient(to bottom, $color__grey2 40%, rgba(255, 255, 255, 0.7) 90%),
     url("../images/investing.svg");
   background-repeat: repeat, no-repeat;
-  background-position: right bottom;
-  background-size: auto, auto 50%;
+  background-position: center, right bottom;
+  background-size: auto, auto 300px;
   padding: 2rem;
   overflow-y: scroll;
 }

@@ -1,0 +1,21 @@
+.investments {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid $color__grey2;
+  padding-bottom: 2rem;
+}
+
+.investments__avatar {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  margin-right: 2rem;
+}
+
+.investments__name {
+  flex: 1;
+  margin-bottom: 0;
+  font-size: 2.3rem;
+  color: $color__primary3;
+}
