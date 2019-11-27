@@ -1,8 +1,14 @@
 .bonds-container {
   @include transition($prop: "margin-top");
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
   grid-gap: 3rem;
+
+  @media (min-width: 34.375em) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    flex-direction: row;
+  }
 }
 
 .bond {
