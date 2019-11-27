@@ -60,7 +60,8 @@
 }
 
 .modal__body-inner {
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: hidden;
   max-height: 60vh;
+  padding-right: 2rem;
 }

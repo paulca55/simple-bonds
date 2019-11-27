@@ -223,7 +223,7 @@ function getInvestors() {
               </svg>
             </div>
             <h2 class="investor__name">${investors[i].first_name} ${investors[i].last_name}</h2>
-              <button class="investor__investments" data-investor-id="${investors[i].id}">View Investments<span class="u-screen-reader-text"> for ${investors[i].first_name} ${investors[i].last_name}</span></button>
+              <button class="investor__investments" data-investor-id="${investors[i].id}" data-investor-name="${investors[i].first_name} ${investors[i].last_name}">View Investments<span class="u-screen-reader-text"> for ${investors[i].first_name} ${investors[i].last_name}</span></button>
           </div>`;
       }
 
@@ -234,8 +234,9 @@ function getInvestors() {
         investmentsBtn.addEventListener('click', function(e) {
           e.preventDefault ? e.preventDefault() : (e.returnValue = false);
           var investorId = this.getAttribute('data-investor-id');
+          var investorName = this.getAttribute('data-investor-name');
           openModal();
-          getInvestments(investorId);
+          getInvestments(investorId, investorName);
         });
       });
 
@@ -254,7 +255,7 @@ function getInvestors() {
 }
 
 // Get investments from the API
-function getInvestments(investorId) {
+function getInvestments(investorId, investorName) {
   investorsLoader(modalBodyInner);
 
   var xhr = new XMLHttpRequest(),
@@ -282,6 +283,7 @@ function getInvestments(investorId) {
             </svg>
           </div>
           <h3 class="investments__name">${investments[0].investor.first_name} ${investments[0].investor.last_name}</h3>
+          <div class="investments__total">${investmentsTotal} investments</div>
         </div>`;
 
         modalBodyInner.innerHTML = '';
@@ -304,7 +306,22 @@ function getInvestments(investorId) {
           </div>`;
         }
       } else {
-        modalHeader.innerHTML = `snfosnfdnsnnifsi`;
+        modalHeader.innerHTML = `
+        <div class="investments">
+          <div class="investments__avatar">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <title>Avatar image for ${investorName}</title>
+              <path d="M12,0A12,12,0,1,1,0,12,12,12,0,0,1,12,0Zm8.13,19.41a2.6,2.6,0,0,0-1.63-.85c-3.85-.91-4.09-1.5-4.35-2.06a2.18,2.18,0,0,1,.21-2c1.72-3.25,2.09-6,1-7.79A3.74,3.74,0,0,0,12,5,3.79,3.79,0,0,0,8.59,6.76c-1.07,1.79-.69,4.55,1.05,7.76a2.16,2.16,0,0,1,.22,2c-.27.59-.61,1.19-4.37,2.07a2.54,2.54,0,0,0-1.62.85,11,11,0,0,0,16.26,0Zm.65-.78a11,11,0,1,0-17.56,0,3.82,3.82,0,0,1,2-1.05c2-.46,3.38-.83,3.68-1.5A1.24,1.24,0,0,0,8.76,15c-1.92-3.54-2.28-6.65-1-8.75A4.79,4.79,0,0,1,12,4a4.79,4.79,0,0,1,4.24,2.22c1.25,2.08.9,5.19-1,8.77a1.27,1.27,0,0,0-.18,1.1c.31.66,1.64,1,3.67,1.49A3.76,3.76,0,0,1,20.78,18.63Z" fill="#63a1d4"/>
+            </svg>
+          </div>
+          <h3 class="investments__name">${investorName}</h3>
+          <div class="investments__total">${investmentsTotal} investments</div>
+        </div>`;
+
+        modalBodyInner.innerHTML = `
+          <div class="investment investment--none">
+            <p>No investments have been made yet</p>
+          </div>`;
       }
     }
   };

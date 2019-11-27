@@ -1,7 +1,7 @@
 .investments {
   display: flex;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   border-bottom: 1px solid $color__grey2;
   padding-bottom: 2rem;
 }
@@ -16,6 +16,39 @@
 .investments__name {
   flex: 1;
   margin-bottom: 0;
+  margin-right: 3rem;
   font-size: 2.3rem;
   color: $color__primary3;
+}
+
+.investments__total {
+  @include headings-font();
+  color: $color__grey6;
+}
+
+.investment {
+  background-image: linear-gradient(45deg, $color__grey1, rgba($color__grey1, 0.4));
+  padding: 2rem;
+  border: 1px solid $color__grey2;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:nth-child(even) {
+    background-image: linear-gradient(45deg, rgba($color__grey1, 0.4), $color__grey1);
+  }
+}
+
+.investment p:last-child {
+  margin-bottom: 0;
+}
+
+.investment--none {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: $color__grey6;
 }

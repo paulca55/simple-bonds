@@ -14,9 +14,9 @@
     "images": "imagemin-dir src/images dist/images",
     "server": "browser-sync start --server dist --files 'dist/css/**/*.css, !dist/css/**/*.map, dist/js/**/*.js', dist/index.html",
     "build:css": "run-s scss autoprefixer",
-    "build": "run-s clean build:css uglify images html",
+    "build": "run-s clean build:css babel uglify-dist-js images html",
     "watch:css": "onchange 'src/scss/**/*.scss' -- run-s build:css",
-    "watch:js": "onchange 'src/js/**/*.js' -- run-s babel uglify",
+    "watch:js": "onchange 'src/js/**/*.js' -- run-s babel uglify-dist-js",
     "watch:images": "onchange 'src/images' -- run-s images",
     "watch:html": "onchange 'src/*.html' -- run-s html",
     "watch": "run-p server watch:*"
