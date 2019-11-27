@@ -46,6 +46,11 @@ body {
   min-height: 100vh;
   font-size: 1.6rem;
   color: #333f48;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    "Helvetica Neue", sans-serif;
+  background-image: linear-gradient(to bottom, $color__grey2 40%, rgba(255, 255, 255, 0.7) 90%);
+  padding: 2rem;
+  overflow-y: scroll;
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
@@ -80,4 +85,21 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+.wrapper {
+  max-width: 960px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.content {
+  background-image: linear-gradient(to bottom, #fff 50%, rgba(255, 255, 255, 0.5));
+  padding: 2rem;
+  box-shadow: 0 0.2rem 1.2rem rgba(0, 0, 0, 0.1);
+  border-radius: 2.2rem;
+
+  @media (min-width: 550px) {
+    padding: 3rem;
+  }
 }

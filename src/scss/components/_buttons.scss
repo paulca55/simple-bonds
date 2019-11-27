@@ -31,23 +31,3 @@
     box-shadow: 0 0 0 0.4rem rgba($color__primary5, 0.4);
   }
 }
-
-button.bond-type__invest-btn {
-  background-color: $color__accent2-c;
-
-  &:hover {
-    background-color: $color__accent2-d;
-  }
-}
-
-button.investment__cancel-btn {
-  font-size: 1.2rem;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: $color__accent4-d;
-
-  &:hover {
-    background-color: $color__accent4-e;
-  }
-}

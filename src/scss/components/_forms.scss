@@ -58,7 +58,7 @@ select {
   font-weight: bold;
   padding: 0.6em 2em 0.6em 0.8em;
   max-width: 100%;
-  margin: 0 0 3rem 1rem;
+  margin: 0;
   border: 0.2rem solid $color__grey4;
   border-radius: 0.5rem;
   -moz-appearance: none;
@@ -81,7 +81,21 @@ select option {
 }
 
 .investment-form {
-  background: url("../images/investing2.svg") no-repeat right center / contain;
+  background: none;
+
+  @media (min-width: 47.5em) {
+    background: url("../images/man-with-investment-graph.svg") no-repeat right center / contain;
+  }
+}
+
+.investor-name {
+  display: block;
+  margin: 0 0 3rem 0;
+
+  @media (min-width: 34.375em) {
+    display: inline;
+    margin: 0 0 3rem 1rem;
+  }
 }
 
 .invest-amount-wrapper {
@@ -89,10 +103,14 @@ select option {
   display: flex;
   align-items: center;
   background-color: #fff;
-  max-width: 35ch;
+  width: 100%;
   border-radius: 0.5rem;
   border: 0.2rem solid $color__grey4;
   margin-bottom: 2.5rem;
+
+  @media (min-width: 34.375em) {
+    max-width: 35ch;
+  }
 }
 
 .invest-amount-wrapper--focus {

@@ -1,0 +1,99 @@
+.bonds-container {
+  @include transition($prop: "margin-top");
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 3rem;
+}
+
+.bond {
+  @include transition();
+  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+
+  &.is-loaded {
+    opacity: 1;
+  }
+}
+
+.bond-header {
+  background-image: linear-gradient(45deg, rgba($color__grey1, 0.3), $color__grey1);
+  padding: 2rem 2rem;
+  border-radius: 1rem 1rem 0 0;
+  border-bottom: 1px solid $color__grey3;
+}
+
+.bond__heading {
+  margin-bottom: 0.8rem;
+  font-size: 2rem;
+  color: $color__primary3;
+}
+
+.bond__duration {
+  font-size: 1.4rem;
+  color: $color__grey6;
+  margin-bottom: 0;
+}
+
+.bond__duration span {
+  font-size: 1.8rem;
+  color: $color__primary4;
+}
+
+.bond-type-container > div:first-of-type {
+  border-bottom: 1px solid $color__grey3;
+}
+
+.bond-type__interest {
+  padding: 1rem 2rem;
+}
+
+.bond-type__interest-percent {
+  @include headings-font;
+  font-size: 3rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: $color__primary5;
+}
+
+.bond-type__pa {
+  font-size: 60%;
+}
+
+.bond-type__interest-paid {
+  color: $color__primary5;
+  font-size: 1.4rem;
+  margin-bottom: 0;
+}
+
+.bond-type__return {
+  padding: 1rem 2rem;
+  color: $color__accent2-b;
+  background-image: linear-gradient(to left, $color__accent2-g, rgba($color__accent2-g, 0.9));
+}
+
+.bond-type__return-amount {
+  @include headings-font;
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.bond-type__return-text {
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.bond-type__invest-btn-wrapper {
+  padding: 2rem;
+  text-align: right;
+}
+
+button.bond-type__invest-btn {
+  background-color: $color__accent2-c;
+
+  &:hover {
+    background-color: $color__accent2-d;
+  }
+}
