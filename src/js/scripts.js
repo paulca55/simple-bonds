@@ -1,20 +1,20 @@
 // Global DOM elements
-var investorNameSelect = document.querySelector(".investor-name");
-var investAmountWrapper = document.querySelector(".invest-amount-wrapper");
-var investAmountInput = document.querySelector(".invest-amount");
-var showBondsBtn = document.querySelector(".show-bonds-btn");
-var bondsContainer = document.querySelector(".bonds-container");
-var bondItem = document.querySelector(".bond");
-var investorsContainer = document.querySelector(".investors-container");
-var modalOverlay = document.querySelector(".modal-overlay");
-var modal = document.querySelector(".modal");
-var modalHeader = document.querySelector(".modal__header");
-var modalCloseBtn = document.querySelector(".modal__close-btn");
-var modalBodyInner = document.querySelector(".modal__body-inner");
+var investorNameSelect = document.querySelector('.investor-name');
+var investAmountWrapper = document.querySelector('.invest-amount-wrapper');
+var investAmountInput = document.querySelector('.invest-amount');
+var showBondsBtn = document.querySelector('.show-bonds-btn');
+var bondsContainer = document.querySelector('.bonds-container');
+var bondItem = document.querySelector('.bond');
+var investorsContainer = document.querySelector('.investors-container');
+var modalOverlay = document.querySelector('.modal-overlay');
+var modal = document.querySelector('.modal');
+var modalHeader = document.querySelector('.modal__header');
+var modalCloseBtn = document.querySelector('.modal__close-btn');
+var modalBodyInner = document.querySelector('.modal__body-inner');
 
 // Bonds loader
 function bondsLoader() {
-  showBondsBtn.textContent = "Finding available bonds...";
+  showBondsBtn.textContent = 'Finding available bonds...';
   bondsContainer.innerHTML = `<div class="loader">Loading</div><div class="loader">Loading</div>`;
 }
 
@@ -25,16 +25,16 @@ function investorsLoader(elem) {
 
 // Toggle focus class on .invest-amount-wrapper
 function focusClassToggle() {
-  investAmountWrapper.classList.toggle("invest-amount-wrapper--focus");
+  investAmountWrapper.classList.toggle('invest-amount-wrapper--focus');
 }
 if (investAmountInput) {
-  investAmountInput.addEventListener("focus", focusClassToggle);
-  investAmountInput.addEventListener("blur", focusClassToggle);
+  investAmountInput.addEventListener('focus', focusClassToggle);
+  investAmountInput.addEventListener('blur', focusClassToggle);
 }
 
 // Use commas in currency
 function currencyFormat(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 // Capitalise first letter of a string
@@ -45,11 +45,11 @@ function capitaliseFirst(string) {
 // Get bonds from the API for the list of available bonds
 function getBonds() {
   var xhr = new XMLHttpRequest(),
-    method = "GET",
-    url = "http://165.227.229.49:8000/bonds?api_key=vNtV4nZsuMRL01sXVPzUtRnzf7L08B9O";
+    method = 'GET',
+    url = 'http://165.227.229.49:8000/bonds?api_key=vNtV4nZsuMRL01sXVPzUtRnzf7L08B9O';
 
   xhr.open(method, url, true);
-  xhr.setRequestHeader("Accept", "application/json");
+  xhr.setRequestHeader('Accept', 'application/json');
 
   xhr.onload = function() {
     if (xhr.status == 200) {
@@ -57,8 +57,8 @@ function getBonds() {
       var bonds = response.data;
 
       var investAmountPence = Number(investAmountInput.value) * 100;
-      showBondsBtn.textContent = "Show available bonds";
-      bondsContainer.innerHTML = "";
+      showBondsBtn.textContent = 'Show available bonds';
+      bondsContainer.innerHTML = '';
 
       // Loop through and display all bonds
       for (var i = 0; i < bonds.length; i++) {
@@ -133,17 +133,17 @@ function getBonds() {
       }
 
       // Add event listener to all invest buttons
-      var investBtns = document.querySelectorAll(".bond-type__invest-btn");
+      var investBtns = document.querySelectorAll('.bond-type__invest-btn');
       var investBtnsArr = Array.prototype.slice.call(investBtns);
       investBtnsArr.forEach(function(investBtn) {
-        investBtn.addEventListener("click", function(e) {
+        investBtn.addEventListener('click', function(e) {
           e.preventDefault ? e.preventDefault() : (e.returnValue = false);
           var investorId = investorNameSelect.value;
-          var investorName = this.getAttribute("data-investor-name");
-          var bondName = this.getAttribute("data-bond-name");
-          var bondId = this.getAttribute("data-bond-id");
-          var bondType = this.getAttribute("data-bond-type");
-          var investAmount = this.getAttribute("data-invest-amount");
+          var investorName = this.getAttribute('data-investor-name');
+          var bondName = this.getAttribute('data-bond-name');
+          var bondId = this.getAttribute('data-bond-id');
+          var bondType = this.getAttribute('data-bond-type');
+          var investAmount = this.getAttribute('data-invest-amount');
 
           if (
             confirm(
@@ -161,10 +161,10 @@ function getBonds() {
 
       // Fade in bonds once they have loaded
       setTimeout(function() {
-        var bondsList = document.querySelectorAll(".bond");
+        var bondsList = document.querySelectorAll('.bond');
         var bondsListArr = Array.prototype.slice.call(bondsList);
         bondsListArr.forEach(function(val) {
-          val.classList.add("is-loaded");
+          val.classList.add('is-loaded');
         });
       }, 100);
     }
@@ -176,12 +176,12 @@ function getBonds() {
 // Get investor names from the API for the form select field
 function getInvestorsName() {
   var xhr = new XMLHttpRequest(),
-    method = "GET",
+    method = 'GET',
     url =
-      "http://165.227.229.49:8000/investors?&per_page=50&api_key=vNtV4nZsuMRL01sXVPzUtRnzf7L08B9O";
+      'http://165.227.229.49:8000/investors?&per_page=50&api_key=vNtV4nZsuMRL01sXVPzUtRnzf7L08B9O';
 
   xhr.open(method, url, true);
-  xhr.setRequestHeader("Accept", "application/json");
+  xhr.setRequestHeader('Accept', 'application/json');
 
   xhr.onload = function() {
     if (xhr.status == 200) {
@@ -191,8 +191,8 @@ function getInvestorsName() {
 
       // Loop through and display all investors
       for (var i = 0; i < investorName.length; i++) {
-        var newOption = document.createElement("option");
-        newOption.setAttribute("value", investorName[i].id);
+        var newOption = document.createElement('option');
+        newOption.setAttribute('value', investorName[i].id);
         newOption.textContent = `${investorName[i].first_name} ${investorName[i].last_name}`;
         investorNameSelect.appendChild(newOption);
       }
@@ -207,18 +207,18 @@ function getInvestors() {
   investorsLoader(investorsContainer);
 
   var xhr = new XMLHttpRequest(),
-    method = "GET",
+    method = 'GET',
     url =
-      "http://165.227.229.49:8000/investors?&per_page=50&api_key=vNtV4nZsuMRL01sXVPzUtRnzf7L08B9O";
+      'http://165.227.229.49:8000/investors?&per_page=50&api_key=vNtV4nZsuMRL01sXVPzUtRnzf7L08B9O';
 
   xhr.open(method, url, true);
-  xhr.setRequestHeader("Accept", "application/json");
+  xhr.setRequestHeader('Accept', 'application/json');
 
   xhr.onload = function() {
     if (xhr.status == 200) {
       var response = JSON.parse(xhr.responseText);
       var investors = response.data;
-      investorsContainer.innerHTML = "";
+      investorsContainer.innerHTML = '';
 
       // Loop through and display all investors
       for (var i = 0; i < investors.length; i++) {
@@ -237,13 +237,13 @@ function getInvestors() {
       }
 
       // Add event listener to all investments buttons
-      var investmentsBtns = document.querySelectorAll(".investor__investments");
+      var investmentsBtns = document.querySelectorAll('.investor__investments');
       var investmentsBtnsArr = Array.prototype.slice.call(investmentsBtns);
       investmentsBtnsArr.forEach(function(investmentsBtn) {
-        investmentsBtn.addEventListener("click", function(e) {
+        investmentsBtn.addEventListener('click', function(e) {
           e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-          var investorId = this.getAttribute("data-investor-id");
-          var investorName = this.getAttribute("data-investor-name");
+          var investorId = this.getAttribute('data-investor-id');
+          var investorName = this.getAttribute('data-investor-name');
           openModal();
           getInvestments(investorId, investorName);
         });
@@ -251,10 +251,10 @@ function getInvestors() {
 
       // Fade in bonds once they have loaded
       setTimeout(function() {
-        var investorsList = document.querySelectorAll(".investor");
+        var investorsList = document.querySelectorAll('.investor');
         var investorsListArr = Array.prototype.slice.call(investorsList);
         investorsListArr.forEach(function(val) {
-          val.classList.add("is-loaded");
+          val.classList.add('is-loaded');
         });
       }, 100);
     }
@@ -268,11 +268,11 @@ function getInvestments(investorId, investorName) {
   investorsLoader(modalBodyInner);
 
   var xhr = new XMLHttpRequest(),
-    method = "GET",
+    method = 'GET',
     url = `http://165.227.229.49:8000/investors/${investorId}/investments?api_key=vNtV4nZsuMRL01sXVPzUtRnzf7L08B9O`;
 
   xhr.open(method, url, true);
-  xhr.setRequestHeader("Accept", "application/json");
+  xhr.setRequestHeader('Accept', 'application/json');
 
   xhr.onload = function() {
     if (xhr.status == 200) {
@@ -298,19 +298,19 @@ function getInvestments(investorId, investorName) {
             </h3>
             <div class="investments__total">${
               investmentsTotal > 1
-                ? investmentsTotal + " investments"
-                : investmentsTotal + " investment"
+                ? investmentsTotal + ' investments'
+                : investmentsTotal + ' investment'
             }</div>
           </div>
 
         </div>`;
 
-        modalBodyInner.innerHTML = "";
+        modalBodyInner.innerHTML = '';
 
         // Loop through and display all investments
         for (var i = 0; i < investments.length; i++) {
           // Investments template
-          if (investments[i].status === "committed" || investments[i].status === "cancelled") {
+          if (investments[i].status === 'committed' || investments[i].status === 'cancelled') {
             modalBodyInner.innerHTML += `
             <div class="investment">
               <h4 class="investment__bond-name">${investments[i].bond.name}</h4>
@@ -366,16 +366,16 @@ function getInvestments(investorId, investorName) {
       }
 
       // Add event listener to all cancel investment buttons
-      var cancelInvestmentsBtns = document.querySelectorAll(".investment__cancel-btn");
+      var cancelInvestmentsBtns = document.querySelectorAll('.investment__cancel-btn');
       var cancelInvestmentsBtnsArr = Array.prototype.slice.call(cancelInvestmentsBtns);
 
       cancelInvestmentsBtnsArr.forEach(function(cancelBtn) {
-        cancelBtn.addEventListener("click", function(e) {
+        cancelBtn.addEventListener('click', function(e) {
           e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-          var bondName = this.getAttribute("data-bond-name");
-          var investorId = this.getAttribute("data-investor-id");
-          var investorName = this.getAttribute("data-investor-name");
-          var investmentId = this.getAttribute("data-investment-id");
+          var bondName = this.getAttribute('data-bond-name');
+          var investorId = this.getAttribute('data-investor-id');
+          var investorName = this.getAttribute('data-investor-name');
+          var investmentId = this.getAttribute('data-investment-id');
 
           if (confirm(`Are you sure you want to cancel your investment with ${bondName}?`)) {
             cancelInvestment(investorId, investmentId);
@@ -393,11 +393,11 @@ function getInvestments(investorId, investorName) {
 // Make investment to the API
 function makeInvestment(investorId, bondId, bondType, investAmount) {
   var xhr = new XMLHttpRequest(),
-    method = "POST",
+    method = 'POST',
     url =
-      "http://165.227.229.49:8000/investors/" +
+      'http://165.227.229.49:8000/investors/' +
       investorId +
-      "/investments?api_key=vNtV4nZsuMRL01sXVPzUtRnzf7L08B9O";
+      '/investments?api_key=vNtV4nZsuMRL01sXVPzUtRnzf7L08B9O';
 
   var investmentData = JSON.stringify({
     bond_id: Number(bondId),
@@ -406,16 +406,16 @@ function makeInvestment(investorId, bondId, bondType, investAmount) {
   });
 
   xhr.open(method, url, true);
-  xhr.setRequestHeader("Accept", "application/json");
-  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader('Accept', 'application/json');
+  xhr.setRequestHeader('Content-Type', 'application/json');
 
   xhr.onload = function() {
     if (xhr.status >= 400) {
-      alert("Sorry your investment was not successful, please try again later.");
+      alert('Sorry your investment was not successful, please try again later.');
       console.log(`Response from the server: ${xhr.responseText}`);
       console.log(`Data sent to server: ${investmentData}`);
     } else {
-      alert("Your investment was made successfully!");
+      alert('Your investment was made successfully!');
       console.log(`Response from the server: ${xhr.responseText}`);
       console.log(`Data sent to server: ${investmentData}`);
     }
@@ -426,18 +426,18 @@ function makeInvestment(investorId, bondId, bondType, investAmount) {
 
 function cancelInvestment(investorId, investmentId) {
   var xhr = new XMLHttpRequest(),
-    method = "DELETE",
+    method = 'DELETE',
     url = `http://165.227.229.49:8000/investors/${investorId}/investments/${investmentId}?api_key=vNtV4nZsuMRL01sXVPzUtRnzf7L08B9O`;
 
   xhr.open(method, url, true);
-  xhr.setRequestHeader("Accept", "application/json");
+  xhr.setRequestHeader('Accept', 'application/json');
 
   xhr.onload = function() {
     if (xhr.status == 200) {
       var response = JSON.parse(xhr.responseText);
       console.log(response);
       closeModal();
-      alert("Your investment has been successfully cancelled.");
+      alert('Your investment has been successfully cancelled.');
     } else {
       var response = JSON.parse(xhr.responseText);
       console.log(response);
@@ -449,13 +449,13 @@ function cancelInvestment(investorId, investmentId) {
 
 // Event listeners
 if (investorNameSelect) {
-  investorNameSelect.addEventListener("change", function() {
+  investorNameSelect.addEventListener('change', function() {
     if (!investAmountInput.value) {
       return;
-    } else if (bondsContainer.innerHTML == "") {
+    } else if (bondsContainer.innerHTML == '') {
       return;
     } else {
-      bondsContainer.style = "margin-top: 5rem;";
+      bondsContainer.style = 'margin-top: 5rem;';
       bondsLoader();
       getBonds();
     }
@@ -463,8 +463,8 @@ if (investorNameSelect) {
 }
 
 if (investAmountInput) {
-  investAmountInput.addEventListener("change", function() {
-    if (bondsContainer.innerHTML == "") {
+  investAmountInput.addEventListener('change', function() {
+    if (bondsContainer.innerHTML == '') {
       return;
     } else {
       showBondsBtn.click();
@@ -473,15 +473,15 @@ if (investAmountInput) {
 }
 
 if (showBondsBtn) {
-  showBondsBtn.addEventListener("click", function(e) {
+  showBondsBtn.addEventListener('click', function(e) {
     e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 
     if (investorNameSelect.value == 0) {
-      alert("Please choose an investor.");
+      alert('Please choose an investor.');
     } else if (!investAmountInput.value) {
-      alert("Please specify an investment amount.");
+      alert('Please specify an investment amount.');
     } else {
-      bondsContainer.style = "margin-top: 5rem;";
+      bondsContainer.style = 'margin-top: 5rem;';
       bondsLoader();
       getBonds();
     }
@@ -490,31 +490,43 @@ if (showBondsBtn) {
 
 if (modalOverlay && modalCloseBtn) {
   function openModal() {
-    modalOverlay.style.opacity = "1";
-    modalOverlay.style.visibility = "visible";
+    modalOverlay.style.opacity = '1';
+    modalOverlay.style.visibility = 'visible';
+    modal.setAttribute('tabindex', '0');
+
+    setTimeout(() => {
+      modal.focus();
+    }, 100);
   }
 
   function closeModal() {
-    modalOverlay.style.opacity = "0";
-    modalOverlay.style.visibility = "hidden";
+    modalOverlay.style.opacity = '0';
+    modalOverlay.style.visibility = 'hidden';
 
     setTimeout(() => {
-      modalHeader.innerHTML = "";
-      modalBodyInner.innerHTML = "";
+      modalHeader.innerHTML = '';
+      modalBodyInner.innerHTML = '';
     }, 300);
   }
 
-  modalOverlay.addEventListener("click", function(e) {
+  function modalClose(e) {
+    if (!e.keyCode || e.keyCode === 27) {
+      closeModal();
+    }
+  }
+  document.addEventListener('keydown', modalClose);
+
+  modalOverlay.addEventListener('click', function(e) {
     e.preventDefault ? e.preventDefault() : (e.returnValue = false);
     closeModal();
   });
 
-  modal.addEventListener("click", function(e) {
+  modal.addEventListener('click', function(e) {
     e.preventDefault ? e.preventDefault() : (e.returnValue = false);
     e.stopPropagation();
   });
 
-  modalCloseBtn.addEventListener("click", function(e) {
+  modalCloseBtn.addEventListener('click', function(e) {
     e.preventDefault ? e.preventDefault() : (e.returnValue = false);
     closeModal();
   });
