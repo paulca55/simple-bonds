@@ -394,10 +394,7 @@ function getInvestments(investorId, investorName) {
 function makeInvestment(investorId, bondId, bondType, investAmount) {
   var xhr = new XMLHttpRequest(),
     method = 'POST',
-    url =
-      'http://165.227.229.49:8000/investors/' +
-      investorId +
-      '/investments?api_key=vNtV4nZsuMRL01sXVPzUtRnzf7L08B9O';
+    url = `http://165.227.229.49:8000/investors/${investorId}/investments?api_key=vNtV4nZsuMRL01sXVPzUtRnzf7L08B9O`;
 
   var investmentData = JSON.stringify({
     bond_id: Number(bondId),
