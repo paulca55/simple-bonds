@@ -485,32 +485,33 @@ if (showBondsBtn) {
   });
 }
 
+function openModal() {
+  modalOverlay.style.opacity = '1';
+  modalOverlay.style.visibility = 'visible';
+  modal.setAttribute('tabindex', '0');
+
+  setTimeout(() => {
+    modal.focus();
+  }, 100);
+}
+
+function closeModal() {
+  modalOverlay.style.opacity = '0';
+  modalOverlay.style.visibility = 'hidden';
+
+  setTimeout(() => {
+    modalHeader.innerHTML = '';
+    modalBodyInner.innerHTML = '';
+  }, 300);
+}
+
+function modalClose(e) {
+  if (!e.keyCode || e.keyCode === 27) {
+    closeModal();
+  }
+}
+
 if (modalOverlay && modalCloseBtn) {
-  function openModal() {
-    modalOverlay.style.opacity = '1';
-    modalOverlay.style.visibility = 'visible';
-    modal.setAttribute('tabindex', '0');
-
-    setTimeout(() => {
-      modal.focus();
-    }, 100);
-  }
-
-  function closeModal() {
-    modalOverlay.style.opacity = '0';
-    modalOverlay.style.visibility = 'hidden';
-
-    setTimeout(() => {
-      modalHeader.innerHTML = '';
-      modalBodyInner.innerHTML = '';
-    }, 300);
-  }
-
-  function modalClose(e) {
-    if (!e.keyCode || e.keyCode === 27) {
-      closeModal();
-    }
-  }
   document.addEventListener('keydown', modalClose);
 
   modalOverlay.addEventListener('click', function(e) {
