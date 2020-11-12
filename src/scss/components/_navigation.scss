@@ -78,24 +78,24 @@
 }
 
 .menu__link--current {
-  color: $color__primary2;
+  color: $color__primary6;
   background-color: #fff;
   cursor: default;
   filter: drop-shadow(0 0.2rem 1.2rem rgba(0, 0, 0, 0.1));
   border: 0.2rem solid #fff;
 
   svg {
-    fill: $color__primary5;
+    fill: $color__primary3;
   }
 }
 
 .menu__link--current:hover {
-  color: $color__primary2;
+  color: $color__primary6;
 }
 
 .menu__link--current:focus {
   @include focus-styles();
-  color: $color__primary2;
+  color: $color__primary6;
 }
 
 .menu__link--bonds svg {

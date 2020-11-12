@@ -1,6 +1,6 @@
 // Headings Font
 @mixin headings-font() {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
 }
 
@@ -11,6 +11,6 @@
 
 // Focus Styles
 @mixin focus-styles() {
-  border: 0.2rem solid $color__primary5;
-  box-shadow: 0 0 0 0.4rem rgba($color__primary5, 0.4);
+  border: 0.2rem solid $color__primary3;
+  box-shadow: 0 0 0 0.4rem rgba($color__primary3, 0.4);
 }

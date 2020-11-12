@@ -1,12 +1,12 @@
-input[type="text"],
-input[type="email"],
-input[type="number"],
-input[type="url"],
-input[type="password"],
-input[type="tel"],
-input[type="date"],
-input[type="time"],
-input[type="search"],
+input[type='text'],
+input[type='email'],
+input[type='number'],
+input[type='url'],
+input[type='password'],
+input[type='tel'],
+input[type='date'],
+input[type='time'],
+input[type='search'],
 textarea {
   @include transition();
   font-weight: bold;
@@ -19,29 +19,29 @@ textarea {
   outline: none;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="number"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
-input[type="tel"]:focus,
-input[type="date"]:focus,
-input[type="time"]:focus,
-input[type="search"]:focus,
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='number']:focus,
+input[type='url']:focus,
+input[type='password']:focus,
+input[type='tel']:focus,
+input[type='date']:focus,
+input[type='time']:focus,
+input[type='search']:focus,
 textarea:focus,
 select:focus {
   @include focus-styles();
 }
 
 button:not(.modal__close-btn),
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
   @extend .btn;
 }
 
-input[type="checkbox"]:focus,
-input[type="radio"]:focus {
+input[type='checkbox']:focus,
+input[type='radio']:focus {
   border: none;
   box-shadow: none;
 }
@@ -65,7 +65,7 @@ select {
   -webkit-appearance: none;
   appearance: none;
   background-color: #fff;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
   background-repeat: no-repeat;
   background-position: right 0.7em top 50%;
   background-size: 0.65em auto, 100%;
@@ -84,7 +84,7 @@ select option {
   background: none;
 
   @media (min-width: 47.5em) {
-    background: url("../images/man-with-investment-graph.svg") no-repeat right center / contain;
+    background: url('../images/man-with-investment-graph.svg') no-repeat right center / contain;
   }
 }
 
@@ -114,11 +114,11 @@ select option {
 }
 
 .invest-amount-wrapper--focus {
-  border-color: $color__primary5;
-  box-shadow: 0 0 0 0.4rem rgba($color__primary5, 0.4);
+  border-color: $color__primary3;
+  box-shadow: 0 0 0 0.4rem rgba($color__primary3, 0.4);
 
   .invest-amount-symbol {
-    color: $color__primary5;
+    color: $color__primary3;
   }
 }
 

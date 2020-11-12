@@ -21,10 +21,10 @@
 .logo-graph-bar1,
 .logo-graph-bar2,
 .logo-graph-bar3 {
-  stroke: $color__primary3;
+  stroke: $color__primary5;
   stroke-dasharray: 150;
   stroke-dashoffset: 150;
-  fill: $color__primary3;
+  fill: $color__primary5;
 
   .home & {
     animation: dash-animation-bars-text 1.5s 1s linear both;
@@ -32,10 +32,10 @@
 }
 
 .logo-text path {
-  stroke: $color__primary3;
+  stroke: $color__primary5;
   stroke-dasharray: 300;
   stroke-dashoffset: 300;
-  fill: $color__primary3;
+  fill: $color__primary5;
 
   .home & {
     animation: dash-animation-bars-text 1.5s 1s linear both;

@@ -1,5 +1,5 @@
 .bonds-container {
-  @include transition($prop: "margin-top");
+  @include transition($prop: 'margin-top');
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 3rem;
@@ -33,7 +33,7 @@
 .bond__heading {
   margin-bottom: 0.8rem;
   font-size: 2rem;
-  color: $color__primary3;
+  color: $color__primary5;
 }
 
 .bond__duration {
@@ -60,7 +60,7 @@
   font-size: 3rem;
   margin-top: 0;
   margin-bottom: 0;
-  color: $color__primary5;
+  color: $color__primary3;
 }
 
 .bond-type__pa {
@@ -68,15 +68,15 @@
 }
 
 .bond-type__interest-paid {
-  color: $color__primary5;
+  color: $color__primary3;
   font-size: 1.4rem;
   margin-bottom: 0;
 }
 
 .bond-type__return {
   padding: 1rem 2rem;
-  color: $color__accent2-b;
-  background-image: linear-gradient(to left, $color__accent2-g, rgba($color__accent2-g, 0.9));
+  color: $color__accent2-f;
+  background-image: linear-gradient(to left, $color__accent2-a, rgba($color__accent2-a, 0.9));
 }
 
 .bond-type__return-amount {
@@ -97,7 +97,7 @@
 }
 
 button.bond-type__invest-btn {
-  background-color: $color__accent2-c;
+  background-color: $color__accent2-e;
 
   &:hover {
     background-color: $color__accent2-d;

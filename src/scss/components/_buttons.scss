@@ -1,7 +1,7 @@
 .btn {
   @include headings-font();
   @include transition();
-  background: $color__primary3;
+  background: $color__primary5;
   color: rgba(255, 255, 255, 0.9);
   border: 0.2rem solid transparent;
   border-radius: 1em;
@@ -23,11 +23,11 @@
 
   &:active {
     top: 1px;
-    background: $color__primary2;
+    background: $color__primary6;
   }
 
   &:focus {
     border: 0.2rem solid #fff;
-    box-shadow: 0 0 0 0.4rem rgba($color__primary5, 0.4);
+    box-shadow: 0 0 0 0.4rem rgba($color__primary3, 0.4);
   }
 }
