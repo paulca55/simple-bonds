@@ -1,7 +1,7 @@
 .btn {
   @include headings-font();
   @include transition();
-  background: $color__primary5;
+  background: $colour-primary-500;
   color: rgba(255, 255, 255, 0.9);
   border: 0.2rem solid transparent;
   border-radius: 1em;
@@ -16,18 +16,18 @@
   text-transform: capitalize;
 
   &:hover {
-    background: $color__primary4;
+    background: $colour-primary-400;
     transform: translateY(-1px);
     box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
   }
 
   &:active {
     top: 1px;
-    background: $color__primary6;
+    background: $colour-primary-600;
   }
 
   &:focus {
     border: 0.2rem solid #fff;
-    box-shadow: 0 0 0 0.4rem rgba($color__primary3, 0.4);
+    box-shadow: 0 0 0 0.4rem rgba($colour-primary-300, 0.4);
   }
 }

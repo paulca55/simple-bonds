@@ -11,6 +11,6 @@
 
 // Focus Styles
 @mixin focus-styles() {
-  border: 0.2rem solid $color__primary3;
-  box-shadow: 0 0 0 0.4rem rgba($color__primary3, 0.4);
+  border: 0.2rem solid $colour-primary-300;
+  box-shadow: 0 0 0 0.4rem rgba($colour-primary-300, 0.4);
 }

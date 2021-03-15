@@ -2,18 +2,18 @@
   0% {
     fill: transparent;
     stroke-width: 2px;
-    stroke: $color__grey5;
+    stroke: $colour-grey-500;
   }
 
   70% {
     fill: transparent;
     stroke-dashoffset: 0;
-    stroke: $color__grey5;
+    stroke: $colour-grey-500;
     stroke-width: 2px;
   }
 
   100% {
-    fill: $color__accent2-d;
+    fill: $colour-green-400;
     stroke-dashoffset: 0;
     stroke-width: 0;
   }
@@ -23,18 +23,18 @@
   0% {
     fill: transparent;
     stroke-width: 2px;
-    stroke: $color__grey5;
+    stroke: $colour-grey-500;
   }
 
   70% {
     fill: transparent;
     stroke-dashoffset: 0;
-    stroke: $color__grey5;
+    stroke: $colour-grey-500;
     stroke-width: 2px;
   }
 
   100% {
-    fill: $color__primary5;
+    fill: $colour-primary-500;
     stroke-dashoffset: 0;
     stroke-width: 0;
   }

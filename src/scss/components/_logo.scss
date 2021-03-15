@@ -8,10 +8,10 @@
 }
 
 .logo-graph-arrow {
-  stroke: $color__accent2-d;
+  stroke: $colour-green-400;
   stroke-dasharray: 300;
   stroke-dashoffset: 300;
-  fill: $color__accent2-d;
+  fill: $colour-green-400;
 
   .home & {
     animation: dash-animation-arrow 1.5s 2.5s linear both;
@@ -21,10 +21,10 @@
 .logo-graph-bar1,
 .logo-graph-bar2,
 .logo-graph-bar3 {
-  stroke: $color__primary5;
+  stroke: $colour-primary-500;
   stroke-dasharray: 150;
   stroke-dashoffset: 150;
-  fill: $color__primary5;
+  fill: $colour-primary-500;
 
   .home & {
     animation: dash-animation-bars-text 1.5s 1s linear both;
@@ -32,10 +32,10 @@
 }
 
 .logo-text path {
-  stroke: $color__primary5;
+  stroke: $colour-primary-500;
   stroke-dasharray: 300;
   stroke-dashoffset: 300;
-  fill: $color__primary5;
+  fill: $colour-primary-500;
 
   .home & {
     animation: dash-animation-bars-text 1.5s 1s linear both;

@@ -10,7 +10,7 @@ input[type='search'],
 textarea {
   @include transition();
   font-weight: bold;
-  border: 0.2rem solid $color__grey4;
+  border: 0.2rem solid $colour-grey-400;
   padding: 0.6em 0.8em;
   background-color: #fff;
   -webkit-appearance: none;
@@ -50,7 +50,7 @@ label {
   display: inline-block;
   margin-bottom: 1.5rem;
   font-weight: bold;
-  color: $color__grey6;
+  color: $colour-grey-600;
 }
 
 select {
@@ -59,7 +59,7 @@ select {
   padding: 0.6em 2em 0.6em 0.8em;
   max-width: 100%;
   margin: 0;
-  border: 0.2rem solid $color__grey4;
+  border: 0.2rem solid $colour-grey-400;
   border-radius: 0.5rem;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -105,7 +105,7 @@ select option {
   background-color: #fff;
   width: 100%;
   border-radius: 0.5rem;
-  border: 0.2rem solid $color__grey4;
+  border: 0.2rem solid $colour-grey-400;
   margin-bottom: 2.5rem;
 
   @media (min-width: 34.375em) {
@@ -114,11 +114,11 @@ select option {
 }
 
 .invest-amount-wrapper--focus {
-  border-color: $color__primary3;
-  box-shadow: 0 0 0 0.4rem rgba($color__primary3, 0.4);
+  border-color: $colour-primary-300;
+  box-shadow: 0 0 0 0.4rem rgba($colour-primary-300, 0.4);
 
   .invest-amount-symbol {
-    color: $color__primary3;
+    color: $colour-primary-300;
   }
 }
 
@@ -127,7 +127,7 @@ select option {
   @include transition();
   font-size: 2rem;
   padding-left: 0.7em;
-  color: $color__grey6;
+  color: $colour-grey-600;
 }
 
 input.invest-amount {

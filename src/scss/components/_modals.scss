@@ -31,7 +31,7 @@
 .modal__close-btn {
   @include transition();
   border: none;
-  background-color: $color__primary4;
+  background-color: $colour-primary-400;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,11 +48,11 @@
 
   &:focus {
     border: 0.2rem solid #fff;
-    box-shadow: 0 0 0 0.4rem rgba($color__primary3, 0.4);
+    box-shadow: 0 0 0 0.4rem rgba($colour-primary-300, 0.4);
   }
 
   &:hover {
-    background-color: $color__primary5;
+    background-color: $colour-primary-500;
   }
 
   svg {

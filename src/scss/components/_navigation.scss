@@ -45,57 +45,57 @@
   align-items: center;
   justify-content: center;
   padding: 0.8rem 2.5rem;
-  color: $color__grey7;
+  color: $colour-grey-700;
   text-decoration: none;
   border-radius: 3rem;
-  border: 0.2rem solid $color__grey4;
+  border: 0.2rem solid $colour-grey-400;
   outline: none;
 
   svg {
     @include transition(fill);
     width: 1.5em;
     margin-right: 0.7em;
-    fill: $color__grey5;
+    fill: $colour-grey-500;
   }
 }
 
 .menu__link:hover:not(.menu__link--current) {
-  color: $color__grey7;
-  border: 0.2rem solid $color__grey5;
+  color: $colour-grey-700;
+  border: 0.2rem solid $colour-grey-500;
 
   svg {
-    fill: $color__grey6;
+    fill: $colour-grey-600;
   }
 }
 
 .menu__link:focus:not(.menu__link--current) {
-  color: $color__grey7;
+  color: $colour-grey-700;
   @include focus-styles();
 
   svg {
-    fill: $color__grey6;
+    fill: $colour-grey-600;
   }
 }
 
 .menu__link--current {
-  color: $color__primary6;
+  color: $colour-primary-600;
   background-color: #fff;
   cursor: default;
   filter: drop-shadow(0 0.2rem 1.2rem rgba(0, 0, 0, 0.1));
   border: 0.2rem solid #fff;
 
   svg {
-    fill: $color__primary3;
+    fill: $colour-primary-300;
   }
 }
 
 .menu__link--current:hover {
-  color: $color__primary6;
+  color: $colour-primary-600;
 }
 
 .menu__link--current:focus {
   @include focus-styles();
-  color: $color__primary6;
+  color: $colour-primary-600;
 }
 
 .menu__link--bonds svg {
